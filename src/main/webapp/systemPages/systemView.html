@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carbon - Admin Template</title>
+    <link rel="stylesheet" href="../static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="sidebar-fixed header-fixed">
+<div class="page-wrapper">
+    <div class="page-header">
+        <nav class="navbar page-header">
+            <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <a class="navbar-brand" href="#">
+                <img src="../static/images/logo.png" alt="logo">
+            </a>
+
+            <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../static/images/avatar-1.png" class="avatar avatar-sm" alt="logo">
+                        <span class="small ml-1 d-md-down-none">你好！system</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">账户</div>
+                        <a href="systemLogout" class="dropdown-item">
+                            <i class="fa fa-lock"></i> 登出
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title">导航栏</li>
+
+                    <li class="nav-item">
+                        <a href="systemView.html" class="nav-link">
+                            <i class="icon icon-graph"></i> 管理员视图
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="serverBaseInfo.html" class="nav-link">
+                            <i class="icon icon-umbrella"></i> 服务器基本信息
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="usersAction.html" class="nav-link">
+                            <i class="icon icon-energy"></i> 用户管理
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-puzzle"></i> 通用策略配置 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="userAgentAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> userAgent正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="refererAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> referer正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="keyPagesAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> keyPages正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="blackTimeAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> 封禁时间间隔修改
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="analysisIntervalAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> 原始数据时间间隔修改
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="processPolicesAction.html" class="nav-link">
+                            <i class="icon icon-grid"></i> process策略配置
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card p-4">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <label for="serId"><b>请输入服务器id</b>&nbsp;&nbsp;&nbsp;&nbsp;<span id="msg"></span></label>
+                                    <div class="input-group">
+                                        <input type="text" id="serId" name="input1-group2" class="form-control" placeholder="请输入服务器id">
+                                        <span class="input-group-btn">
+                                                <button id="serStatus" type="button" class="btn btn-primary"><i class="fa fa-search"></i> 查询</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-4">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h5 d-block font-weight-normal mb-2">服务器名称</span>
+                                    <span id="serverNameSpan" class="h4 font-weight-light"></span>
+                                </div>
+                                <div class="h2 text-muted">
+                                    <i class="icon icon-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-4">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 d-block font-weight-normal mb-2">900</span>
+                                    <span class="font-weight-light">Downloads</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="card p-4">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 d-block font-weight-normal mb-2">32s</span>
+                                    <span class="font-weight-light">Time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div id="chart"  style="height: 400px"></div>
+                                </div>
+
+                                <div class="justify-content-around mt-4 p-4 bg-light d-flex border-top d-md-down-none">
+                                    <div class="text-center">
+                                        <div class="text-muted small">CPU占用率</div>
+                                        <div><span id="CPURate"></span></div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="text-muted small">内存占用率</div>
+                                        <div><span id="RAMRate"></span></div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="text-muted small">磁盘占用率</div>
+                                        <div><span id="DISKRate"></span></div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="text-muted small">磁盘IO率</div>
+                                        <div><span id="DISKIORate"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card-body">
+                                            <div>
+                                                <div class="input-group">
+                                                    <input type="text" id="LinkFlowInput" name="input1-group2" class="form-control" placeholder="请输入要查询的时间">
+                                                    <span class="input-group-btn">
+                                                        <button id="LinkFlowBtn" type="button" class="btn btn-primary"><i class="fa fa-search"></i> 查询</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-header bg-light">
+                                            <span id="LinkFlowSpan"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="p-4">
+                                            <div id="LinkFlowChart"  style="height: 400px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/vendor/popper.js/popper.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="../static/vendor/chart.js/chart.min.js"></script>-->
+<script src="../static/js/carbon.js"></script>
+<!--<script src="../static/js/demo.js"></script>-->
+<!-- 引入js工具 -->
+<script src="../static/js/JsUtils.js" type="text/javascript" charset="utf-8"></script>
+<!--引入用于图表制作的js-->
+<script src="../static/js/echarts.min.js"></script>
+<script src="../static/js/chartThemes.js"></script>
+<script>
+    $(function () {
+        // 对Date的扩展，将 Date 转化为指定格式的String
+        // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+        // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+        // 例子：
+        // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+        // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+        // time1 = new Date().Format("yyyy-MM-dd");
+        // time2 = new Date().Format("yyyy-MM-dd hh:mm:ss");
+        Date.prototype.Format = function (fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(),      //日
+                "h+": this.getHours(),     //小时
+                "m+": this.getMinutes(),   //分
+                "s+": this.getSeconds(),   //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        };
+    });
+
+    $(function () {
+        //1、绘制服务器状态折线图 <==========================================================================
+        //初始化echarts实例对象
+        var mCharts = echarts.init(document.querySelector("#chart"),'chartThemes');
+        //x坐标轴数据（默认初始为空）
+        var xDataArr = [];
+        //y坐标轴数据（默认初始为空）
+        var yDataArrCpu = [];   //服务器cpu占用率
+        var yDataArrMemory = [];//服务器内存占用率
+        var yDataArrDisk = [];  //服务器磁盘占用率
+        var yDataArrDiskIo = [];//服务器磁盘IO率
+        //准备配置项
+        var option = {
+            title: {                 // 标题设置
+                text: '服务器状态展示' // 标题文字
+            },
+            xAxis: {
+                type: 'category',
+                data: xDataArr,
+                boundaryGap: false     // x轴的第1个元素是否与y轴有距离
+            },
+            yAxis: {
+                type: 'value',
+                scale: true,            //是纵坐标轴不从0开始计数
+                axisLabel: {
+                    show:true,
+                    formatter: '{value}%'
+                }
+            },
+            series: [
+                {name: 'cpu占用率',data: yDataArrCpu,type: 'line'},
+                {name: '内存占用率',data: yDataArrMemory,type: 'line'},
+                {name: '磁盘占用率',data: yDataArrDisk,type: 'line'},
+                {name: '磁盘IO占用率',data: yDataArrDiskIo,type: 'line'}
+            ],
+            toolbox: {                 // 工具箱按钮
+                feature: {
+                    saveAsImage: {},   // 导出图片
+                    restore: {},       // 重置
+                    dataZoom: {},      // 区域缩放
+                    magicType: {
+                        type: ['bar', 'line']
+                    }
+                }
+            },
+            legend: {                  // 图例, 图例中的data数据来源于series中每个对象的name, 图例可以帮助我们对图表进行筛选
+                data: ['cpu占用率', '内存占用率','磁盘占用率','磁盘IO占用率']
+            },
+            label: {                   // 图表上的文字设置
+                show: true,            // 是否显示
+                position: 'top'        // 显示位置
+            },
+            tooltip : {                //设置提示框组件
+                trigger:'axis',        //坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
+                triggerOn:'mousemove'  //鼠标移动时触发。
+            }
+        };
+        //将配置项设置给echarts实例对象
+        mCharts.setOption(option);
+
+
+        //使用【websocket】与【js定时器】技术不断与后台进行数据交互，实时更新折线图中的数据，实现动态展示
+        //当前的时间(返回距离1970年1月1日的毫秒数)
+        var nowDate = (new Date()).getTime();
+        //当无人指定服务器的主键时，默认为0（即：查询的数据为null）。
+        var id = 0;
+        //用于指定送哪条数据开始查询（每查询一次后，自增1）
+        var m = 0;
+        //用于存储webSocket对象
+        var ws = null;
+        //判断当前浏览器是否支持websocket
+        if ('WebSocket' in window){
+            ws = new WebSocket("ws:localhost:8081/GraduationProject_war_exploded/websocket")
+        }else {
+            alert("浏览器不支持");
+        }
+        if (ws != null){
+            // 连接错误的回调方法
+            ws.onerror = function () {
+                console.log("WEBSOCKET发生链接错误");
+            };
+            // 连接成功的回调方法
+            ws.onopen = function () {
+                console.log("WebSocket连接成功！");
+            };
+            // 连接关闭的回调方法
+            ws.onclose = function () {
+                console.log("WebSocket连接关闭");
+            };
+            // 收到消息的回调方法
+            ws.onmessage = function (ev) {
+                if (ev.data !== null){
+                    console.log("data：",ev.data);
+                    //将后台传输来的json字符串转化为json对象
+                    var jsonOb = JSON.parse(ev.data);
+                    //用于存储更新后的x坐标轴数据
+                    var xDataArrbak =[];
+                    //用于存储更新后的y坐标轴数据
+                    var yDataArrCpuBak = [];
+                    var yDataArrMemoryBak = [];
+                    var yDataArrDiskBak = [];
+                    var yDataArrDiskIoBak = [];
+                    //将从后台获取的x,y轴数据添加至xDataArrbak与yDataArrbak变量中
+                    for (var i = 0; i < jsonOb.length; i++) {
+                        //将从后台获取的微秒数转化为date对象
+                        var serCreateDate = new Date(jsonOb[i].serCreateTime);
+                        //将更新后的数据添加进对应的变量中
+                        xDataArrbak.push(serCreateDate.Format("hh:mm:ss"));
+                        yDataArrCpuBak.push(jsonOb[i].serCpu);
+                        yDataArrMemoryBak.push(jsonOb[i].serMemory);
+                        yDataArrDiskBak.push(jsonOb[i].serDisk);
+                        yDataArrDiskIoBak.push(jsonOb[i].serDiskIo);
+                    }
+                    //重新准备配置项
+                    var option = {
+                        xAxis: {data: xDataArrbak},
+                        series: [
+                            {data: yDataArrCpuBak},
+                            {data: yDataArrMemoryBak},
+                            {data: yDataArrDiskBak},
+                            {data: yDataArrDiskIoBak}
+                        ]
+                    };
+                    //实现增量动画（这个知识是在学习echarts中知道的，所谓的增量动画：就是重新设置图表的数据，达到动态展示的效果）
+                    mCharts.setOption(option);
+                    //更新图表下面的数据
+                    $("#CPURate").text(jsonOb[jsonOb.length-1].serCpu+"%");
+                    $("#RAMRate").text(jsonOb[jsonOb.length-1].serMemory+"%");
+                    $("#DISKRate").text(jsonOb[jsonOb.length-1].serDisk+"%");
+                    $("#DISKIORate").text(jsonOb[jsonOb.length-1].serDiskIo+"%");
+
+                }
+                //推送完数据后，将友好提示信息删除
+                var $msge = $("#msg");
+                if ($msge.text() !== null){
+                    $msge.text("");
+                    $msge.removeAttr("style");
+                }
+
+
+
+            };
+        }
+        // 关闭websocket连接
+        function closeWebSocket(){
+            ws.close();
+        }
+        // 监听窗口关闭事件，防止连接没断关闭窗口。
+        window.onbeforeunload = function () {
+            closeWebSocket();
+        };
+        // 监听window窗口大小变化，实现图表自适应
+        window.onresize = function(){
+            //调用echarts实例对象的resize方法
+            mCharts.resize()
+        };
+        //设置一个定时器，每5秒向服务器发送一次信息，用于获取最新的服务器状态数据，以实时更新折线统计图
+        setInterval(function () {
+            //判断websocket对象是否存在
+            if (ws !== null){
+                //判断websocket是否成功连接，服务器id是否大于0（主键id不能小于等于0）
+                if (ws.readyState === 1 && id > 0) {
+                    var message = id+"#"+nowDate+"#"+m;
+                    console.log("message：",message);
+                    //使用websocket向服务器发送数据
+                    ws.send(message);
+                    //用于指定送哪条数据开始查询（每查询一次后，自增1）
+                    m++;
+                }
+            }
+        },5000);
+
+        // 当用户点击按钮之后，会将全局变量id的值修改为input标签中输入的值
+        // 之后定时器再往服务器发送数据时，发送的id就变为了修改后的id值（变相的实现了查询不同服务器的状态数据）
+        $("#serStatus").click(function () {
+            id = $("#serId").val();
+            //获取id对应的服务器基本信息并将其名称进行展示
+            findBasicInformationById(id);
+            //由于修改完全局变量id的值之后，要被动的等到定时器向服务器发送数据才会更新成功，为了用户良好体验，这里提供一个友好提示信息
+            var $msg = $("#msg");
+            $msg.text("请稍等...");
+            $msg.attr({style:"color: brown"})
+        });
+
+        //获取id对应的服务器基本信息并将其名称进行展示
+        function findBasicInformationById(id) {
+            $.post("ServerStatusMonitorController/findBasicInformationById",{"id":id},function (data) {
+                $("#serverNameSpan").text(data.serverHostname);
+            })
+        }
+
+
+
+        //2、绘制链路流量折线图 <==========================================================================
+        var LinkFlowCharts = echarts.init(document.querySelector("#LinkFlowChart"),'chartThemes');
+        //x坐标轴数据（默认初始为空）
+        var xLinkFlowArr = [];
+        //y坐标轴数据（默认初始为空）
+        var yLinkFlowRaw = [];
+        var yLinkFlowReptile = [];
+        //准备配置项
+        var LinkFlowOption = {
+            title: {                   // 标题设置
+                text: '链路流量展示'     // 标题文字
+            },
+            xAxis: {
+                type: 'category',
+                data: xLinkFlowArr,
+                boundaryGap: false     // x轴的第1个元素是否与y轴有距离
+
+            },
+            yAxis: {
+                type: 'value',
+                scale: true,            //是纵坐标轴不从0开始计数
+                axisLabel: {
+                    show:true,
+                    formatter: '{value}次'
+                }
+            },
+            series: [
+                {
+                    name: '服务器中的总流量',
+                    data: yLinkFlowRaw,
+                    type: 'line',
+                    markPoint:{data:[{type: 'max'},{type: 'min'}]},
+                    smooth: true,       // 是否为平滑线
+                    lineStyle: {        // 线的样式设置
+                        color: '#4682B4',
+                        type: 'solid'
+                    },
+                    areaStyle: {        // 线和x轴形成的区域设置
+                        color: '#4682B4'
+                    }
+                },
+                {
+                    name: '服务器中的爬虫流量',
+                    data: yLinkFlowReptile,
+                    type: 'line',
+                    markPoint:{data:[{type: 'max'},{type: 'min'}]},
+                    smooth: true,       // 是否为平滑线
+                    lineStyle: {        // 线的样式设置
+                        color: '#8B4726',
+                        type: 'solid'
+                    },
+                    areaStyle: {        // 线和x轴形成的区域设置
+                        color: '#8B4726'
+                    }
+                }
+            ],
+            toolbox: {                 // 工具箱按钮
+                feature: {
+                    saveAsImage: {},   // 导出图片
+                    restore: {},       // 重置
+                    dataZoom: {},      // 区域缩放
+                    magicType: {
+                        type: ['bar', 'line']
+                    }
+                }
+            },
+            legend: {                  // 图例, 图例中的data数据来源于series中每个对象的name, 图例可以帮助我们对图表进行筛选
+                data: ['服务器中的总流量', '服务器中的爬虫流量']
+            },
+            label: {                   // 图表上的文字设置
+                show: true,            // 是否显示
+                position: 'top'        // 显示位置
+            },
+            tooltip : {                //设置提示框组件
+                trigger:'axis',        //坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
+                triggerOn:'mousemove'  //鼠标移动时触发。
+            }
+        };
+        //将配置项设置给echarts实例对象
+        LinkFlowCharts.setOption(LinkFlowOption);
+        // 监听window窗口大小变化的事件
+        window.onresize = function(){
+            LinkFlowCharts.resize();
+            mCharts.resize()
+        };
+        
+        //使用AJAX请求，查询【某一天中每个小时 或 某一天中、某一小时的每5分钟的数据量】的链路流量
+        $("#LinkFlowBtn").click(function () {
+            //获取用户输入的将要查询的时间
+            var LinkFlowDate = $("#LinkFlowInput").val();
+            var pattern1 = "^\\S\\S\\S\\S-\\S\\S-\\S\\S$";
+            var pattern2 = "^\\S\\S\\S\\S-\\S\\S-\\S\\S/\\S\\S$";
+            if (!LinkFlowDate.match(pattern1) && !LinkFlowDate.match(pattern2)){
+                $("#LinkFlowSpan").html("请输入正确的时间格式：<br/>" +
+                    "若要查询【某一天中每个小时】的数据量，请输入年-月-日，比如：2022-05-15<br/>" +
+                    "若要查询【某一天中、某一小时的每5分钟的数据量】的数据量，请输入年-月-日/小时，比如：2022-05-15/21<br/>").css("color","red");
+            }else {
+                //发送AJAX请求
+                $.post("linkStatusMonitorController/getLinkFlow",{"initialData":LinkFlowDate},function (data) {
+                    if (data.flag === "-1"){
+                        $("#LinkFlowSpan").text(data.msg).css("color","red");
+                    } else if (data.flag === "-2"){
+                        $("#LinkFlowSpan").text(data.msg).css("color","red");
+                    } else {
+                        $("#LinkFlowSpan").text(data.msg).css("color","green");
+                        //若返回的数据量为24，说明用户查询的是【某一天中每个小时】的数据量；否则，说明用户查询的是【某一天中、某一小时的每5分钟的数据量】
+                        if (data.rawCount.length === 24){
+                            xLinkFlowArr = ["第1小时内","第2小时内","第3小时内","第4小时内","第5小时内","第6小时内","第7小时内","第8小时内","第9小时内","第10小时内","第11小时内","第12小时内","第13小时内","第14小时内","第15小时内","第16小时内","第17小时内","第18小时内","第19小时内","第20小时内","第21小时内","第22小时内","第23小时内","第24小时内"];
+                            //这里存储的是【某一天中每个小时】的全部流量
+                            yLinkFlowRaw = data.rawCount;
+                            //这里存储的是【某一天中每个小时】的爬虫流量
+                            yLinkFlowReptile = data.reptileCount;
+                            //重新准备配置项
+                            var optionRaw = {
+                                xAxis: {data: xLinkFlowArr},
+                                series: [
+                                    {data: yLinkFlowRaw},
+                                    {data: yLinkFlowReptile}
+                                ]
+                            };
+                            LinkFlowCharts.setOption(optionRaw);
+                        } else {
+                            xLinkFlowArr = ["0~4分钟","5~9分钟","10~14分钟","15~19分钟","20~24分钟","25~29分钟","30~34分钟","35~39分钟","40~44分钟","45~49分钟","50~54分钟","55~59分钟"];
+                            //这里存储的是【某一天中、某一小时的每5分钟的数据量】的全部流量
+                            yLinkFlowRaw = data.rawCount;
+                            //这里存储的是【某一天中、某一小时的每5分钟的数据量】的爬虫流量
+                            yLinkFlowReptile = data.reptileCount;
+                            //重新准备配置项
+                            var optionReptile = {
+                                xAxis: {data: xLinkFlowArr},
+                                series: [
+                                    {data: yLinkFlowRaw},
+                                    {data: yLinkFlowReptile}
+                                ]
+                            };
+                            LinkFlowCharts.setOption(optionReptile);
+                        }
+                    }
+                })
+            }
+        });
+    })
+</script>
+</body>
+</html>

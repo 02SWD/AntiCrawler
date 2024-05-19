@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blackTime配置</title>
+    <link rel="stylesheet" href="../static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="sidebar-fixed header-fixed">
+<div class="page-wrapper">
+    <div class="page-header">
+        <nav class="navbar page-header">
+            <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <a class="navbar-brand" href="#">
+                <img src="../static/images/logo.png" alt="logo">
+            </a>
+
+            <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../static/images/avatar-1.png" class="avatar avatar-sm" alt="logo">
+                        <span class="small ml-1 d-md-down-none">你好！system</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">账户</div>
+                        <a href="systemLogout" class="dropdown-item">
+                            <i class="fa fa-lock"></i> 登出
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title">导航栏</li>
+
+                    <li class="nav-item">
+                        <a href="systemView.html" class="nav-link">
+                            <i class="icon icon-graph"></i> 管理员视图
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="serverBaseInfo.html" class="nav-link">
+                            <i class="icon icon-umbrella"></i> 服务器基本信息
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="usersAction.html" class="nav-link">
+                            <i class="icon icon-energy"></i> 用户管理
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-puzzle"></i> 通用策略配置 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="userAgentAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> userAgent正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="refererAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> referer正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="keyPagesAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> keyPages正则配置
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="blackTimeAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> 封禁时间间隔修改
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="analysisIntervalAction.html" class="nav-link">
+                                    <i class="icon icon-puzzle"></i> 原始数据时间间隔修改
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="processPolicesAction.html" class="nav-link">
+                            <i class="icon icon-grid"></i> process策略配置
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-5">
+                    <!--修改封禁的时间间隔-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <b>修改封禁的时间间隔（单位：小时）</b>&nbsp;&nbsp;&nbsp;&nbsp;<span id="updateBlackTimeMsg"></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="UpdateBlackTimeIntervalBtn" type="button" class="btn btn-outline-secondary btn-sm">
+                                                <i class="fa fa-align-center"></i> &nbsp; 修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <form id="updateBlackTimeIntervalForm" action="" onsubmit="return false">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">@</span>
+                                            </div>
+                                            <input name="blackTimeInterval" type="number" class="form-control" placeholder="请输入封禁的时间间隔">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--查询封禁的时间间隔-->
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <b>查询封禁的时间间隔（单位：小时）</b>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="findBlackTimeIntervalBtn" type="button" class="btn btn-outline-secondary btn-sm">
+                                                <i class="fa fa-align-center"></i> &nbsp; 查询
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table" id="findBlackTimeTable"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/vendor/popper.js/popper.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="../static/vendor/chart.js/chart.min.js"></script>-->
+<script src="../static/js/carbon.js"></script>
+<!--<script src="../static/js/demo.js"></script>-->
+<!-- 引入js工具 -->
+<script src="../static/js/JsUtils.js"></script>
+<!-- 引入bootstrap-table插件 -->
+<link href="../static/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<script src="../static/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../static/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script>
+    $(function () {
+        //修改封禁时间间隔
+        $("#UpdateBlackTimeIntervalBtn").click(function () {
+            $.post("blackTimeActionController/updateBlackTimeAjax",$("#updateBlackTimeIntervalForm").serialize(),function (data) {
+                var $updateBlackTimeMsg = $("#updateBlackTimeMsg");
+                if (data === "封禁时间间隔修改成功"){
+                    $updateBlackTimeMsg.text(data).css("color","green");
+                }else {
+                    $updateBlackTimeMsg.text(data).css("color","red");
+                }
+            })
+        });
+
+        //查询 封禁时间间隔（单位：小时）
+        $("#findBlackTimeIntervalBtn").click(function () {
+            var $findBlackTimeTable = $("#findBlackTimeTable");
+            $.post("blackTimeActionController/findBlackTimeAjax",{},function (data) {
+                $findBlackTimeTable.bootstrapTable('destroy').bootstrapTable({
+                    data:data,
+                    columns:[
+                        {title:"ID",field:"blackId"},
+                        {title:"封禁时间间隔",field:"blackTimeInterval"}
+                    ],
+                    showLoading:false
+                }).bootstrapTable("hideLoading");
+            })
+        });
+    })
+</script>
+</body>
+</html>
