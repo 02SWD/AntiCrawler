@@ -14,7 +14,8 @@
 7. 实时监控模块：在该模块下，用户可以清晰方便地看到服务器的状态信息与链路流量转发情况。
 8. 数据可视化模块：在该模块下，系统可以将服务器状态信息与链路流量信息制作成图表，向用户展示不同时间内爬虫对系统稳定性的影响。
 
-
+### 系统架构
+![系统架构](https://raw.githubusercontent.com/02SWD/AntiCrawler/main/%E9%99%84%E4%BB%B6/4.1_%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png?token=GHSAT0AAAAAACSOXDXG76B47O3DLAZDSHQYZSJWUJA)
 
 
 
