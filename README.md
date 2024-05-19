@@ -16,9 +16,8 @@
 
 ### 项目部署：
 - 在mysql数据库中先创建一个名为graduationproject的数据库，然后运行 附件/表创建.sql文件 中的SQL语句，创建数据表。
-- 在centos7中安装openresty服务器，然后将系统的lua脚本部署在openresty服务器中并对该服务器的nginx.conf文件进行配置，启动服务器，脚本即可自动运行。
-  - nginx.conf文件配置的示例如下：
-  ![nginx.conf配置](https://raw.githubusercontent.com/02SWD/AntiCrawler/main/%E9%99%84%E4%BB%B6/nginx%E9%85%8D%E7%BD%AE.png?token=GHSAT0AAAAAACSOXDXHCMKVKQYNZJTDSCTCZSJXJZA)
+- 在centos7中安装openresty服务器，然后将系统的lua脚本部署在openresty服务器中并对该服务器的nginx.conf文件进行配置，启动服务器，脚本即可自动运行,nginx.conf文件配置的示例如下：
+![nginx.conf配置](https://raw.githubusercontent.com/02SWD/AntiCrawler/main/%E9%99%84%E4%BB%B6/nginx%E9%85%8D%E7%BD%AE.png?token=GHSAT0AAAAAACSOXDXHCMKVKQYNZJTDSCTCZSJXJZA)
 - 将项目源代码打包成war包之后，部署在tomcat服务器中，运行服务器即可打开主系统。
 - 在登录页面，管理员账号默认为：system/root，而普通用户需要管理员手动添加在进行登录。
 
